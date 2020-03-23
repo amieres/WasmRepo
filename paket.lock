@@ -1,17 +1,18 @@
 RESTRICTION: == netstandard2.0
 NUGET
-  remote: https://daily.websharper.com/nuget
-    Bolero.FSharp.Compiler.Service (25.0.1.5)
-      FSharp.Core (>= 4.1.18)
+  remote: https://www.nuget.org/api/v2
+    FSharp.Compiler.Service (34.1.1)
+      FSharp.Core (>= 4.6.2)
+      System.Buffers (>= 4.5)
       System.Collections.Immutable (>= 1.5)
       System.Diagnostics.Process (>= 4.1)
       System.Diagnostics.TraceSource (>= 4.0)
+      System.Memory (>= 4.5.3)
       System.Reflection.Emit (>= 4.3)
       System.Reflection.Metadata (>= 1.6)
       System.Reflection.TypeExtensions (>= 4.3)
       System.Runtime.Loader (>= 4.0)
       System.Security.Cryptography.Algorithms (>= 4.3)
-  remote: https://www.nuget.org/api/v2
     FSharp.Core (4.7.1)
     Microsoft.NETCore.Platforms (3.1)
     Microsoft.NETCore.Targets (3.1)

@@ -11,12 +11,12 @@
   </head>
   <body>
 	code:<br>
-	<textarea rows="10" cols="100" id="input">printfn "Hello World!"</textarea><br>
+	<textarea rows="10" cols="180" id="input" spellcheck="false">printfn "Hello World!"</textarea><br>
 	<button type="button" onclick="App.onCompile()" id="button" disabled="true">Compile</button>
 	<button onclick="App.onDir()">Dir</button>
 	<button onclick="App.onRun()">Run</button>
 	<br>output:<br>
-	<textarea rows="20" cols="100" id="output">Loading WASM...</textarea>
+	<textarea rows="28" cols="180" id="output" spellcheck="false" wrap="off">Loading WASM...</textarea>
 	<script type='text/javascript'>
 		var App = {
 			fsx      : "/tmp/source.fsx",

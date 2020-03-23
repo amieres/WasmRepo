@@ -6,7 +6,7 @@ let compile(options:string) =
     async {
         try
             printfn "before Compile"
-            let! errors1, exitCode1 = Microsoft.FSharp.Compiler.SourceCodeServices.FSharpChecker.Create().Compile opts
+            let! errors1, exitCode1 = FSharp.Compiler.SourceCodeServices.FSharpChecker.Create().Compile opts
             for e in errors1 do printfn "%A" e
             if exitCode1 <> 0 then printfn "exit = %d" exitCode1 
             printfn "Compiled!"
