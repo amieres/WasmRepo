@@ -14,6 +14,6 @@ To run the first time:
     cd publish
     python ../wasm-sdk/server.py
 ```
-- open in a browser: `http://localhost/sample.html`
+- open in a browser: http://localhost:8000/sample.html
 - Wait for it to load...
 - Use buttons to Compile & Run
