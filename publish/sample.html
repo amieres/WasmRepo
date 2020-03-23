@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+		<style>
+			body {
+				padding: 20px;
+				background-color:#ffffc9
+			  }				  
+			  p { margin : 0; }
+		</style>    	  
+  </head>
+  <body>
+	code:<br>
+	<textarea rows="10" cols="100" id="input">printfn "Hello World!"</textarea><br>
+	<button type="button" onclick="App.onCompile()" id="button" disabled="true">Compile</button>
+	<button onclick="App.onDir()">Dir</button>
+	<button onclick="App.onRun()">Run</button>
+	<br>output:<br>
+	<textarea rows="20" cols="100" id="output">Loading WASM...</textarea>
+	<script type='text/javascript'>
+		var App = {
+			fsx      : "/tmp/source.fsx",
+			exe      : "/tmp/out.exe",
+			preloadTo: "/dll",
+			morefiles: [],
+			clr      : function () { this.output.value = ""; 				   },
+			options  : function () { return  "fsc.exe\n" + this.fsx + "\n-o:" + this.exe + "\n--simpleresolution\n--nowarn:3186\n--optimize-\n--noframework\n--fullpaths\n--warn:3\n--target:exe\n-r:/dll/FSharp.Core.dll\n-r:/dll/mscorlib.dll\n-r:/dll/netstandard.dll\n-r:/dll/System.dll\n-r:/dll/System.Core.dll\n-r:/dll/System.IO.dll\n-r:/dll/System.Runtime.dll\n-r:/dll/System.Net.Http.dll\n-r:/dll/System.Threading.dll\n-r:/dll/WebAssembly.Net.Http.dll\n-r:/dll/WebAssembly.Bindings.dll\n-r:/dll/WebAssembly.Net.WebSockets.dll\n-r:/dll/System.Numerics.dll" },
+			onCompile: function () { FS.writeFile(this.fsx, this.input.value);
+									 this.clr(); this.compile(this.options()); },
+			onDir	 : function () { this.clr(); this.dir('/'); 			   },
+			onRun	 : function () { this.clr(); this.run(this.exe); 		   },
+			init 	 : function () {
+				this.compile = Module.mono_bind_static_method ("[WasmRepo] WasmRepo:compile");
+				this.run     = Module.mono_bind_static_method ("[WasmRepo] WasmRepo:run");
+				this.dir     = Module.mono_bind_static_method ("[WasmRepo] WasmRepo:dir");
+				this.input   = document.getElementById ("input" );
+				this.output  = document.getElementById ("output");
+				this.button  = document.getElementById ("button");
+				this.button.disabled = false;
+				this.appendMsg("Finished loading WASM!");
+			},
+			appendMsg: function (v) { 
+				console.log(v);
+				let p = this.output.value;
+				this.output.value = (p === undefined || p === null || p === '')? v : p + "\n" + v;
+			},
+		};
+    </script>
+    <script type="text/javascript" src="mono-config.js"></script>
+	<script type="text/javascript" src="runtime.js"></script>
+	<script>
+		let rootPath = ""
+		function preloadFiles() { 
+			Module.preloadPlugins = [];
+			let loadFiles = (pathFrom, pathTo, files) => {
+				try { FS.mkdir(pathTo); } catch(error) {  };
+				files.forEach(file => {
+					FS.createPreloadedFile(pathTo, file, pathFrom + "/" + file, 1, 1);
+				}
+				)
+			}
+			loadFiles(rootPath + config.vfs_prefix, App.preloadTo, config.file_list.filter(f => !App.morefiles.includes(f)));
+			loadFiles(rootPath + "dlls"           , App.preloadTo, App.morefiles);
+		}		
+		Module.preRun = [];
+		Module.preRun.push(preloadFiles);
+		Module.preRun.push(function() { ENV.MONO_TRACE = "none" });
+		Module.print    = App.appendMsg;
+		Module.printErr = App.appendMsg;
+		var Browser = {
+			init : function () {},
+			asyncLoad : function readAsync(url, onload, onerror) {
+				var xhr = new XMLHttpRequest;
+				xhr.open("GET", url, true);
+				xhr.responseType = "arraybuffer";
+				xhr.onload = function xhr_onload() {
+					if (xhr.status == 200 || xhr.status == 0 && xhr.response) {
+						onload(new Uint8Array(xhr.response));
+						return
+					}
+					onerror()
+				};
+				xhr.onerror = onerror;
+				xhr.send(null)
+			}
+		}
+	</script>
+	<script async type="text/javascript" src="dotnet.js"></script>
+  </body>
+  </html>
