@@ -1,8 +1,11 @@
 ﻿module WasmRepo
 
 let compile(options:string) =
+    System.Environment.SetEnvironmentVariable("FSHARP_COMPILER_BIN", "/tmp")
     let opts =  options.Split '\n' |> Array.filter (fun x -> x.Trim() <> "")
-    printfn "compile(text, options:string) options = %A" opts
+    printfn "FCS 25.0 Bolero options= [| "
+    for op in opts do printfn "    %s" op
+    printfn "|]"
     async {
         try
             printfn "before Compile"
