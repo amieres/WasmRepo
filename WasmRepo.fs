@@ -3,7 +3,7 @@
 let compile(options:string) =
     System.Environment.SetEnvironmentVariable("FSHARP_COMPILER_BIN", "/tmp")
     let opts =  options.Split '\n' |> Array.filter (fun x -> x.Trim() <> "")
-    printfn "FCS 34.1.1 options= [| "
+    printfn "FCS 33.0.1 options= [| "
     for op in opts do printfn "    %s" op
     printfn "|]"
     async {

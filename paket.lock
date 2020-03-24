@@ -1,13 +1,11 @@
 RESTRICTION: == netstandard2.0
 NUGET
   remote: https://www.nuget.org/api/v2
-    FSharp.Compiler.Service (34.1.1)
+    FSharp.Compiler.Service (33.0.1)
       FSharp.Core (>= 4.6.2)
-      System.Buffers (>= 4.5)
       System.Collections.Immutable (>= 1.5)
       System.Diagnostics.Process (>= 4.1)
       System.Diagnostics.TraceSource (>= 4.0)
-      System.Memory (>= 4.5.3)
       System.Reflection.Emit (>= 4.3)
       System.Reflection.Metadata (>= 1.6)
       System.Reflection.TypeExtensions (>= 4.3)
