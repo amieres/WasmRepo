@@ -21,10 +21,10 @@
 		var App = {
 			fsx      : "/tmp/source.fsx",
 			exe      : "/tmp/out.exe",
-			preloadTo: "/dll",
+			preloadTo: "/tmp",
 			morefiles: [],
 			clr      : function () { this.output.value = ""; 				   },
-			options  : function () { return  "fsc.exe\n" + this.fsx + "\n-o:" + this.exe + "\n--simpleresolution\n--nowarn:3186\n--optimize-\n--noframework\n--fullpaths\n--warn:3\n--target:exe\n-r:/dll/FSharp.Core.dll\n-r:/dll/mscorlib.dll\n-r:/dll/netstandard.dll\n-r:/dll/System.dll\n-r:/dll/System.Core.dll\n-r:/dll/System.IO.dll\n-r:/dll/System.Runtime.dll\n-r:/dll/System.Net.Http.dll\n-r:/dll/System.Threading.dll\n-r:/dll/WebAssembly.Net.Http.dll\n-r:/dll/WebAssembly.Bindings.dll\n-r:/dll/WebAssembly.Net.WebSockets.dll\n-r:/dll/System.Numerics.dll" },
+			options  : function () { return  "fsc.exe\n" + this.fsx + "\n-o:" + this.exe + "\n--simpleresolution\n--nowarn:3186\n--optimize-\n--noframework\n--fullpaths\n--warn:3\n--target:exe\n-r:/tmp/FSharp.Core.dll\n-r:/tmp/mscorlib.dll\n-r:/tmp/netstandard.dll\n-r:/tmp/System.dll\n-r:/tmp/System.Core.dll\n-r:/tmp/System.IO.dll\n-r:/tmp/System.Runtime.dll\n-r:/tmp/System.Net.Http.dll\n-r:/tmp/System.Threading.dll\n-r:/tmp/WebAssembly.Net.Http.dll\n-r:/tmp/WebAssembly.Bindings.dll\n-r:/tmp/WebAssembly.Net.WebSockets.dll\n-r:/tmp/System.Numerics.dll" },
 			onCompile: function () { FS.writeFile(this.fsx, this.input.value);
 									 this.clr(); this.compile(this.options()); },
 			onDir	 : function () { this.clr(); this.dir('/'); 			   },
