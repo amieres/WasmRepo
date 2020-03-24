@@ -12,9 +12,9 @@
   <body>
 	code:<br>
 	<textarea rows="10" cols="180" id="input" spellcheck="false">printfn "Hello World!"</textarea><br>
-	<button type="button" onclick="App.onCompile()" id="button" disabled="true">Compile</button>
+	<!--button type="button" onclick="App.onCompile()" id="button" disabled="true">Compile</button-->
 	<button onclick="App.onDir()">Dir</button>
-	<button onclick="App.onRun()">Run</button>
+	<!--button onclick="App.onRun()">Run</button-->
 	<br>output:<br>
 	<textarea rows="28" cols="180" id="output" spellcheck="false" wrap="off">Loading WASM...</textarea>
 	<script type='text/javascript'>
@@ -30,13 +30,13 @@
 			onDir	 : function () { this.clr(); this.dir('/'); 			   },
 			onRun	 : function () { this.clr(); this.run(this.exe); 		   },
 			init 	 : function () {
-				this.compile = Module.mono_bind_static_method ("[WasmRepo] WasmRepo:compile");
-				this.run     = Module.mono_bind_static_method ("[WasmRepo] WasmRepo:run");
+				//this.compile = Module.mono_bind_static_method ("[WasmRepo] WasmRepo:compile");
+				//this.run     = Module.mono_bind_static_method ("[WasmRepo] WasmRepo:run");
 				this.dir     = Module.mono_bind_static_method ("[WasmRepo] WasmRepo:dir");
 				this.input   = document.getElementById ("input" );
 				this.output  = document.getElementById ("output");
 				this.button  = document.getElementById ("button");
-				this.button.disabled = false;
+				//this.button.disabled = false;
 				this.appendMsg("Finished loading WASM!");
 			},
 			appendMsg: function (v) { 
