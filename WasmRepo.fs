@@ -1,6 +1,7 @@
 ﻿module WasmRepo
 
 let compile(options:string) =
+    System.Environment.SetEnvironmentVariable("FSHARP_COMPILER_BIN", "/tmp")
     let opts =  options.Split '\n' |> Array.filter (fun x -> x.Trim() <> "")
     printfn "compile(text, options:string) options = %A" opts
     async {
