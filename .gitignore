@@ -357,6 +357,7 @@ MigrationBackup/
 managed/
 wasm-sdk/
 wasm/
+build*/
 dotnet.js
 dotnet.wasm
 mono-config.js
