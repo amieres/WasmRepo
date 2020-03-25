@@ -8,7 +8,13 @@ To run the first time:
 
 - unzip into folder: **wasm-sdk**
 - Compile WasmRepo.fs: `dotnet build`
-- Publish application: `package`
+- Publish application: 
+```
+    ./packageAOT
+    cd buildAOT
+    ninja
+    cd ..
+```
 - Run Web Server with:
 ```
     cd publish
@@ -16,4 +22,4 @@ To run the first time:
 ```
 - open in a browser: http://localhost:8000/sample.html
 - Wait for it to load...
-- Use buttons to Compile & Run
+- Use buttons to execute routines: `dir` and `fibo` work, `what works and what doesn't`  work interpreted but not AOT
