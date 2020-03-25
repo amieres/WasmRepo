@@ -3,11 +3,22 @@
 open System
 open System.IO
 
+let newFileName =
+   System.Environment.SetEnvironmentVariable("FSHARP_COMPILER_BIN", "/tmp")
+   let mutable counter = 0
+   fun () -> 
+       counter <- counter + 1
+       "/tmp/app" + counter.ToString() + ".exe"
+
+
 module XXX =
     let hello = "Hello"
     let print : string -> unit = Console.WriteLine
     let concatAnd v = "and " + v
     let print2 = concatAnd >> print
+
+//let fail1() =
+//    XXX.hello.GetType().GetMethodImpl
 
 let thisWorksThisDoesnt() =
     try 
@@ -16,6 +27,7 @@ let thisWorksThisDoesnt() =
         XXX.print "so does this"
         XXX.print2 "this"
         Console.WriteLine XXX.hello
+        Console.WriteLine (newFileName())
         printfn "but this %d" 0
         printfn "or this %A" 0
         printfn "or this %A" "doesn't"
