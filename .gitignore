@@ -362,3 +362,5 @@ dotnet.js
 dotnet.wasm
 mono-config.js
 runtime.js
+.fake
+.ionide
