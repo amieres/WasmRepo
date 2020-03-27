@@ -69,7 +69,7 @@
 			loadFiles(rootPath + "dlls"           , App.preloadTo, App.morefiles);
 		}		
 		Module.preRun = [];
-		Module.preRun.push(preloadFiles);
+		//Module.preRun.push(preloadFiles);
 		Module.preRun.push(function() { ENV.MONO_TRACE = "none" });
 		Module.print    = App.appendMsg;
 		Module.printErr = App.appendMsg;
