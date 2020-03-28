@@ -12,7 +12,7 @@ To run the first time:
 
 - unzip into folder: **wasm-sdk**
 - Compile WasmRepo.fs: `dotnet build`
-- instal emscripten sdk: 
+- install emscripten sdk: 
 ```
 git clone https://github.com/emscripten-core/emsdk.git
 cd emsdk
