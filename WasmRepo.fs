@@ -34,7 +34,7 @@ let thisWorksThisDoesnt() =
         printfn "or this %s" "doesn't"
     with e -> 
         Console.Write "**** THIS FAILS:"
-        Console.Write e.Message
+        Console.WriteLine e.Message
 
 let rec dir (d:string) =
     try 
@@ -83,9 +83,35 @@ let inline TimeIt n f p =
 
 let doFibosTimed args = TimeIt "doFibos" doFibos args
 
-let mutable foo = false
 
-if foo then 
-    doFibosTimed ""
-    dir ""
-    thisWorksThisDoesnt()
+let listFSCore () =
+    
+    let o1  = Microsoft.FSharp.Core.PrintfFormat<obj,obj,obj,obj>
+    let t1  = o1.GetType()
+    let asm = t1.Assembly
+    
+    Console.WriteLine (o1.ToString())
+
+    let writeMethods (t:Type) =
+        for m in t.GetMethods() do
+            Console.Write "    "
+            Console.WriteLine m.Name
+
+    let writeTypes (asm:Reflection.Assembly) =
+        for t in asm.GetTypes() do
+            Console.WriteLine t.FullName
+            if t.FullName = "Microsoft.FSharp.Core.PrintfImpl" then
+                writeMethods t
+    
+    writeMethods t1
+    Console.WriteLine "-----"
+    writeTypes asm
+    writeTypes typeof<Microsoft.FSharp.Core.PrintfFormat<obj,obj,obj,obj>>.Assembly
+//let mutable foo = false
+//
+//if foo then 
+//    doFibosTimed ""
+//    dir ""
+//    thisWorksThisDoesnt()
+
+//let xxx = Microsoft.FSharp.Core.PrintfImpl.FormatString .intFromString  "5546"
