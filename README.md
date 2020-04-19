@@ -21,8 +21,8 @@ cd emsdk
 ```
 - Publish application: 
 ```
-    ./packageAOT.sh
-    cd buildAOT
+    ./packageAOTinterp.sh
+    cd buildAOTinterp
     ninja
     cd ..
 ```
