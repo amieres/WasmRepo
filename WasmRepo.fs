@@ -7,21 +7,14 @@ let argError msg = printfn "excp: %s" msg ; failwith msg  // raise (ArgumentErro
 
 let testCompression() =
     use mem    = new System.IO.MemoryStream()
-(**)printfn "mem"
     use comp   = new System.IO.Compression.GZipStream(mem, System.IO.Compression.CompressionMode.Compress  )
-(**)printfn "comp"
     use wrt    = new System.IO.StreamWriter(comp)
-(**)printfn "wrt"
     wrt.WriteLine "Hello GZipStream"
-(**)printfn "wrt.WriteLine"
     wrt.Close()
-(**)printfn "close"
     use mem2   = new System.IO.MemoryStream(mem.GetBuffer())
-(**)printfn "Seek"
     use decomp = new System.IO.Compression.GZipStream(mem2, System.IO.Compression.CompressionMode.Decompress)
-(**)printfn "decomp"
     use rdr    = new System.IO.StreamReader(decomp)
-(**)printfn "rdr %s" <| rdr.ReadLine()
+    Console.WriteLine(rdr.ReadLine())
 
 let newFileName =
    System.Environment.SetEnvironmentVariable("FSHARP_COMPILER_BIN", "/tmp")
@@ -81,6 +74,7 @@ let thisWorksThisDoesnt() =
     with e -> 
         Console.Write "**** THIS FAILS:"
         Console.WriteLine e.Message 
+        Console.WriteLine e.StackTrace
     printfn "after try ... with" // when line 31 fails this one doesn't print
 
 let rec dir (d:string) =
