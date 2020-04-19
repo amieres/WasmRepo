@@ -3,6 +3,26 @@
 open System
 open System.IO
 
+let argError msg = printfn "excp: %s" msg ; failwith msg  // raise (ArgumentError msg)
+
+let testCompression() =
+    use mem    = new System.IO.MemoryStream()
+(**)printfn "mem"
+    use comp   = new System.IO.Compression.GZipStream(mem, System.IO.Compression.CompressionMode.Compress  )
+(**)printfn "comp"
+    use wrt    = new System.IO.StreamWriter(comp)
+(**)printfn "wrt"
+    wrt.WriteLine "Hello GZipStream"
+(**)printfn "wrt.WriteLine"
+    wrt.Close()
+(**)printfn "close"
+    use mem2   = new System.IO.MemoryStream(mem.GetBuffer())
+(**)printfn "Seek"
+    use decomp = new System.IO.Compression.GZipStream(mem2, System.IO.Compression.CompressionMode.Decompress)
+(**)printfn "decomp"
+    use rdr    = new System.IO.StreamReader(decomp)
+(**)printfn "rdr %s" <| rdr.ReadLine()
+
 let newFileName =
    System.Environment.SetEnvironmentVariable("FSHARP_COMPILER_BIN", "/tmp")
    let mutable counter = 0
@@ -20,21 +40,48 @@ module XXX =
 //let fail1() =
 //    XXX.hello.GetType().GetMethodImpl
 
+let getOps (options:string) =
+    let opts =  options.Split '\n' |> Array.filter (fun x -> x.Trim() <> "")
+    printfn "options = [| "
+    for op in opts do printfn "    %s" op
+    printfn "|]"
+    opts
+
+
 let thisWorksThisDoesnt() =
     try 
         Console.WriteLine "This works"
+        testCompression()        
         printfn "This does too"
         XXX.print "so does this"
         XXX.print2 "this"
         Console.WriteLine XXX.hello
         Console.WriteLine (newFileName())
-        printfn "but this %d" 0
-        printfn "or this %A" 0
+        printfn "but this %d" 0  // when FSharp.Core is AOT compiled this does not ever return (interpreted it works)
+        printfn "or this %A"  0. // when above line fails this one doesn't print
         printfn "or this %A" "doesn't"
         printfn "or this %s" "doesn't"
+        async { 
+            printfn "async with no timer" 
+        }
+        |> Async.Start // and Async.RunSynchronously also worked
+        async { 
+            try
+                printfn "async with timer before" 
+                do! Async.Sleep 1000
+                printfn "async with timer after" 
+            with e -> printfn "Failed evalExpression: %A" e
+        }
+        |> Async.Start // and Async.RunSynchronously also worked
+        //async { 
+        //    do! Async.Sleep 1000
+        //    printfn "async with timer & RunSynchronously" 
+        //}
+        //|> Async.RunSynchronously // error: "cannot wait for events on this runtime"
     with e -> 
         Console.Write "**** THIS FAILS:"
-        Console.WriteLine e.Message
+        Console.WriteLine e.Message 
+    printfn "after try ... with" // when line 31 fails this one doesn't print
 
 let rec dir (d:string) =
     try 
@@ -55,6 +102,7 @@ let nowStamp() =
 let rec fibo = function
     | 0 | 1 -> 1
     | n -> fibo (n - 1) + fibo (n - 2)
+    // fibo is slow (80s) interpreted, medium when mscorlib & WasmRepo are AOT (7s) & fast (3s) when FSharp.Core is compiled
 
 let printFibo (n:int) = 
     Console.Write      "fibo(" 

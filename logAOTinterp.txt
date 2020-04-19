@@ -1,0 +1,160 @@
+Loading WASM...
+L: process_set_name: using [(null)] as prog name
+L: mono_w32handle_new: create Process handle 0x10f7fa4
+L: Assembly Loader probing location: '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/lib/mono/4.5/mscorlib.dll'.
+L: mono_pe_file_map: Error opening file mscorlib.dll (3): No such file or directory
+L: Assembly Loader loaded assembly from bundle: 'mscorlib.dll'.
+L: Image addref mscorlib[0x1137920] (asmctx DEFAULT) -> mscorlib.dll[0x1136b38]: 3
+L: Prepared to set up assembly 'mscorlib' (mscorlib.dll)
+L: Found statically linked AOT module 'mscorlib'.
+L: AOT: module mscorlib wants to load image 0: mscorlib
+L: AOT: image 'mscorlib' found.
+L: Config attempting to parse: 'mscorlib.dll.config'.
+L: Config attempting to parse: '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/etc/mono/assemblies/mscorlib/mscorlib.config'.
+L: Assembly Loader probing location: 'aot-instances.dll'.
+L: mono_pe_file_map: Error opening file aot-instances.dll (3): No such file or directory
+L: Assembly Loader loaded assembly from bundle: 'aot-instances.dll'.
+L: Image addref aot-instances[0x1130b30] (asmctx DEFAULT) -> aot-instances.dll[0x1130008]: 3
+L: Prepared to set up assembly 'aot-instances' (aot-instances.dll)
+L: Loading assembly aot-instances (0x1130b30) into domain mono (0x10ff630) and ALC 0
+L: Assembly aot-instances[0x1130b30] added to domain mono, ref_count=1
+L: Found statically linked AOT module 'aot-instances'.
+L: AOT: module aot-instances wants to load image 3: aot-instances
+L: AOT: module aot-instances wants to load image 0: mscorlib
+L: AOT: module aot-instances wants to load image 1: FSharp.Core
+L: Request to load FSharp.Core in (domain 0x10ff630, alc 0)
+L: Assembly Loader probing location: '/FSharp.Core.dll'.
+L: mono_pe_file_map: Error opening file FSharp.Core.dll (3): No such file or directory
+L: Assembly Loader loaded assembly from bundle: 'FSharp.Core.dll'.
+L: Image addref FSharp.Core[0x1130b90] (asmctx DEFAULT) -> FSharp.Core.dll[0x113fb38]: 3
+L: Prepared to set up assembly 'FSharp.Core' (FSharp.Core.dll)
+L: Loading assembly FSharp.Core (0x1130b90) into domain mono (0x10ff630) and ALC 0
+L: Assembly FSharp.Core[0x1130b90] added to domain mono, ref_count=1
+L: AOT: image 'FSharp.Core.dll.so' not found: 
+L: AOT: image '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/lib/mono/aot-cache/wasm/FSharp.Core.dll.so' not found: 
+L: Config attempting to parse: 'FSharp.Core.dll.config'.
+L: Config attempting to parse: '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/etc/mono/assemblies/FSharp.Core/FSharp.Core.config'.
+L: AOT: module aot-instances wants to load image 2: WasmRepo
+L: Request to load WasmRepo in (domain 0x10ff630, alc 0)
+L: Assembly Loader probing location: '/WasmRepo.dll'.
+L: mono_pe_file_map: Error opening file WasmRepo.dll (3): No such file or directory
+L: Assembly Loader loaded assembly from bundle: 'WasmRepo.dll'.
+L: Image addref WasmRepo[0x1132a78] (asmctx DEFAULT) -> WasmRepo.dll[0x1131d40]: 3
+L: Prepared to set up assembly 'WasmRepo' (WasmRepo.dll)
+L: Loading assembly WasmRepo (0x1132a78) into domain mono (0x10ff630) and ALC 0
+L: Assembly WasmRepo[0x1132a78] added to domain mono, ref_count=1
+L: Found statically linked AOT module 'WasmRepo'.
+L: AOT: module WasmRepo wants to load image 0: WasmRepo
+L: AOT: module WasmRepo wants to load image 1: FSharp.Core
+L: Request to load FSharp.Core in (domain 0x10ff630, alc 0)
+L: AOT: module WasmRepo wants to load image 2: mscorlib
+L: AOT: image 'WasmRepo' found.
+L: Config attempting to parse: 'WasmRepo.dll.config'.
+L: Config attempting to parse: '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/etc/mono/assemblies/WasmRepo/WasmRepo.config'.
+L: AOT: image 'aot-instances' found.
+L: Config attempting to parse: 'aot-instances.dll.config'.
+L: Config attempting to parse: '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/etc/mono/assemblies/aot-instances/aot-instances.config'.
+L: AOT: FOUND method (wrapper managed-to-native) object:__icall_wrapper_mono_threads_state_poll () [0x29a6 - 0x29a7 0x356f0]
+L: AOT: FOUND method (wrapper managed-to-native) object:__icall_wrapper_mini_llvmonly_init_vtable_slot (intptr,int) [0x2c - 0x31 0x35661]
+L: AOT: FOUND method (wrapper managed-to-native) object:__icall_wrapper_mono_helper_ldstr_mscorlib (int) [0x78 - 0x7a 0x356a8]
+L: AOT: FOUND method (wrapper managed-to-native) object:__icall_wrapper_mono_fill_method_rgctx (intptr,int) [0xb6 - 0xb7 0x3568c]
+L: AOT: FOUND method (wrapper managed-to-native) object:__icall_wrapper_mono_fill_class_rgctx (intptr,int) [0x113 - 0x114 0x3568b]
+L: AOT: FOUND method System.OutOfMemoryException:.ctor (string) [0xb00 - 0xb01 0x271d7]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (object&,intptr) [0x3bac - 0x3bad 0xc3c50]
+L: AOT: FOUND method (wrapper runtime-invoke) object:runtime_invoke_sig_void_intptr_intptr_intptr (object,intptr,intptr,intptr) [0x386f - 0x3870 0xc2d07]
+L: AOT: FOUND method System.Exception:.cctor () [0xc0d - 0xc0e 0x27a4f]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (intptr) [0x39e7 - 0x39e8 0xc348a]
+L: AOT: FOUND method (wrapper runtime-invoke) object:runtime_invoke_sig_void_intptr (object,intptr,intptr,intptr) [0x3abb - 0x3abc 0xc3846]
+L: AOT: FOUND method System.NullReferenceException:.ctor (string) [0x6cf - 0x6d0 0x25407]
+L: AOT: FOUND method System.StackOverflowException:.ctor (string) [0x7e8 - 0x7e9 0x25c63]
+L: Loading assembly mscorlib (0x1137920) into domain mono (0x10ff630) and ALC 0
+L: Assembly mscorlib[0x1137920] added to domain mono, ref_count=1
+L: Request to load WebAssembly.Bindings in (domain 0x10ff630, alc 0)
+L: Assembly Loader probing location: '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/lib/WebAssembly.Bindings.dll'.
+L: mono_pe_file_map: Error opening file WebAssembly.Bindings.dll (3): No such file or directory
+L: Assembly Loader loaded assembly from bundle: 'WebAssembly.Bindings.dll'.
+L: Image addref WebAssembly.Bindings[0x2218290] (asmctx DEFAULT) -> WebAssembly.Bindings.dll[0x22174c8]: 3
+L: Prepared to set up assembly 'WebAssembly.Bindings' (WebAssembly.Bindings.dll)
+L: Loading assembly WebAssembly.Bindings (0x2218290) into domain mono (0x10ff630) and ALC 0
+L: Assembly WebAssembly.Bindings[0x2218290] added to domain mono, ref_count=1
+L: AOT: image 'WebAssembly.Bindings.dll.so' not found: 
+L: AOT: image '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/lib/mono/aot-cache/wasm/WebAssembly.Bindings.dll.so' not found: 
+L: Config attempting to parse: 'WebAssembly.Bindings.dll.config'.
+L: Config attempting to parse: '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/etc/mono/assemblies/WebAssembly.Bindings/WebAssembly.Bindings.config'.
+L: Requesting loading reference 0 (of 2) of WebAssembly.Bindings.dll
+L: Loading reference 0 of WebAssembly.Bindings.dll asmctx DEFAULT, looking for mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+L: Request to load mscorlib in (domain 0x10ff630, alc 0)
+L: Assembly Ref addref WebAssembly.Bindings[0x2218290] -> mscorlib[0x1137920]: 2
+L: Request to load WasmRepo in (domain 0x10ff630, alc 0)
+L: Requesting loading reference 1 (of 2) of WasmRepo.dll
+L: Loading reference 1 of WasmRepo.dll asmctx DEFAULT, looking for mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+L: Request to load mscorlib in (domain 0x10ff630, alc 0)
+L: Assembly Ref addref WasmRepo[0x1132a78] -> mscorlib[0x1137920]: 3
+L: AOT: FOUND method System.ThrowHelper:ThrowArgumentOutOfRangeException (System.ExceptionArgument) [0xac9 - 0xaca 0x2709d]
+L: AOT: FOUND method System.RuntimeType:CreateInstanceForAnotherGenericParameter (System.Type,System.RuntimeType) [0xc7b - 0xc7c 0x27e32]
+L: AOT: FOUND method System.Enum:GetUnderlyingType (System.Type) [0xbc6 - 0xbc7 0x27808]
+L: AOT: FOUND method System.Type:GetTypeCode (System.Type) [0x9b4 - 0x9b5 0x267c6]
+L: AOT: FOUND method System.RuntimeType:IsAssignableFrom (System.Type) [0xc38 - 0xc39 0x27b8f]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (intptr,object&,intptr) [0x395e - 0x395f 0xc31af]
+L: AOT: FOUND method System.RuntimeType:.cctor () [0xc9b - 0xc9c 0x27f07]
+L: AOT: FOUND method System.RuntimeType:get_UnderlyingSystemType () [0xc3c - 0xc3d 0x27bae]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (intptr,object&,object&,intptr) [0x3bdd - 0x3bde 0xc3d75]
+L: AOT: FOUND method (wrapper stelemref) object:virt_stelemref_class_small_idepth (intptr,object) [0x2921 - 0x2922 0x35646]
+L: AOT: FOUND method System.RuntimeType:GetConstructors (System.Reflection.BindingFlags) [0xc29 - 0xc2a 0x27b1b]
+L: AOT: FOUND method System.Reflection.ConstructorInfo:.cctor () [0x180a - 0x180b 0x2c719]
+L: AOT: FOUND method System.Globalization.CultureInfo:.cctor () [0x2125 - 0x2126 0x2f8bf]
+L: AOT: FOUND method (wrapper stelemref) object:virt_stelemref_sealed_class (intptr,object) [0x291f - 0x2920 0x35644]
+L: AOT: FOUND method System.Globalization.CalendarData:.cctor () [0x2016 - 0x2017 0x2ebef]
+L: AOT: FOUND method System.Globalization.GlobalizationMode:.cctor () [0x2004 - 0x2005 0x2ebc6]
+L: AOT: FOUND method System.Array:Resize<T> (T[]&,int) [0xb03 - 0xb04 0x271f8]
+L: AOT: FOUND method System.Reflection.RuntimeConstructorInfo:GetParametersCount () [0x1a4b - 0x1a4c 0x2cd1c]
+L: AOT: FOUND method System.Collections.Generic.GenericEqualityComparer`1<T_INT>:.ctor () [0x34a8 - 0x34a9 0xc18fa]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (intptr) [0x31ae - 0x31af 0xc0753]
+L: AOT: FOUND method (wrapper runtime-invoke) object:runtime_invoke_sig_void_intptr_intptr (object,intptr,intptr,intptr) [0x393b - 0x393c 0xc30f2]
+L: AOT: FOUND method System.RuntimeType:get_IsGenericType () [0xc54 - 0xc55 0x27c4f]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (intptr,intptr) [0x35a8 - 0x35a9 0xc1f28]
+L: AOT: FOUND method System.RuntimeType:get_IsEnum () [0xc43 - 0xc44 0x27bd1]
+L: AOT: FOUND method System.Type:.cctor () [0x9d6 - 0x9d7 0x26884]
+L: AOT: FOUND method System.Reflection.Missing:.cctor () [0x1865 - 0x1866 0x2c807]
+L: AOT: FOUND method System.EmptyArray`1:.cctor () [0xd53 - 0xd54 0x2829b]
+L: AOT: FOUND method System.Type:FilterAttributeImpl (System.Reflection.MemberInfo,object) [0x96f - 0x970 0x2668e]
+L: AOT: FOUND method System.Type:FilterNameImpl (System.Reflection.MemberInfo,object) [0x970 - 0x971 0x266a1]
+L: AOT: FOUND method System.Type:FilterNameIgnoreCaseImpl (System.Reflection.MemberInfo,object) [0x971 - 0x972 0x266aa]
+L: AOT: FOUND method System.RuntimeType:GetAttributeFlagsImpl () [0xc3d - 0xc3e 0x27bb2]
+L: AOT: FOUND method System.Reflection.MethodBase:GetMethodFromHandle (System.RuntimeMethodHandle) [0x1854 - 0x1855 0x2c7df]
+L: AOT: FOUND method string:Concat (string,string) [0x1b3 - 0x1b4 0x25cd2]
+L: Requesting loading reference 1 (of 2) of WebAssembly.Bindings.dll
+L: Loading reference 1 of WebAssembly.Bindings.dll asmctx DEFAULT, looking for System, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+L: Request to load System in (domain 0x10ff630, alc 0)
+L: Assembly Loader probing location: '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/lib/System.dll'.
+L: mono_pe_file_map: Error opening file System.dll (3): No such file or directory
+L: Assembly Loader loaded assembly from bundle: 'System.dll'.
+L: Image addref System[0x2259830] (asmctx DEFAULT) -> System.dll[0x2258a38]: 3
+L: Prepared to set up assembly 'System' (System.dll)
+L: Loading assembly System (0x2259830) into domain mono (0x10ff630) and ALC 0
+L: Assembly System[0x2259830] added to domain mono, ref_count=1
+L: AOT: image 'System.dll.so' not found: 
+L: AOT: image '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/lib/mono/aot-cache/wasm/System.dll.so' not found: 
+L: Config attempting to parse: 'System.dll.config'.
+L: Config attempting to parse: '/mnt/d/Abe/CIPHERWorkspace/mono/sdks/out/wasm-runtime-release/etc/mono/assemblies/System/System.config'.
+L: Assembly Ref addref WebAssembly.Bindings[0x2218290] -> System[0x2259830]: 2
+L: Requesting loading reference 0 (of 5) of System.dll
+L: Loading reference 0 of System.dll asmctx DEFAULT, looking for mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+L: Request to load mscorlib in (domain 0x10ff630, alc 0)
+L: Assembly Ref addref System[0x2259830] -> mscorlib[0x1137920]: 4
+L: AOT: FOUND method System.Type:get_IsValueType () [0x999 - 0x99a 0x26757]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (intptr,Mono.ValueTuple`1<int>&,intptr) [0x358a - 0x358b 0xc1e18]
+L: AOT: FOUND method System.Reflection.RuntimeMethodInfo:get_DeclaringType () [0x1a30 - 0x1a31 0x2ccb8]
+L: AOT: FOUND method System.Reflection.RuntimeMethodInfo:GetParameters () [0x1a27 - 0x1a28 0x2cca1]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (intptr,intptr) [0x31f1 - 0x31f2 0xc09d4]
+L: AOT: FOUND method System.DBNull:.cctor () [0x4b6 - 0x4b7 0x248a8]
+L: AOT: FOUND method System.Reflection.RuntimeParameterInfo:.ctor (string,System.Type,int,int,object,System.Reflection.MemberInfo,System.Runtime.InteropServices.MarshalAsAttribute) [0x1a71 - 0x1a72 0x2cd63]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (object&,object&,int&,int&,object&,object&,object&,intptr) [0x322e - 0x322f 0xc0b01]
+L: AOT: FOUND method (wrapper runtime-invoke) object:runtime_invoke_sig_void_intptr_intptr_intptr_intptr_intptr_intptr_intptr_intptr_intptr (object,intptr,intptr,intptr) [0x384d - 0x384e 0xc2c4d]
+L: AOT: FOUND method System.Reflection.ParameterInfo:get_ParameterType () [0x187d - 0x187e 0x2c87e]
+L: AOT: FOUND method (wrapper other) object:gsharedvt_out_sig (intptr,object&,intptr) [0x3c4b - 0x3c4c 0xc402f]
+L: AOT: FOUND method System.RuntimeType:GetTypeCodeImpl () [0xc81 - 0xc82 0x27e67]
+L: Request to load System in (domain 0x10ff630, alc 0)
+L: Request to load WasmRepo in (domain 0x10ff630, alc 0)
+L: Request to load WasmRepo in (domain 0x10ff630, alc 0)
+Finished loading WASM!
