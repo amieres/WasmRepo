@@ -33,4 +33,4 @@ cd emsdk
 ```
 - open in a browser: http://localhost:8000/sample.html
 - Wait for it to load...
-- Use buttons to execute routines: `dir` and `fibo` work, `what works and what doesn't`  work interpreted but not AOT
+- Use buttons to execute routines: `dir` and `fibo` work, `what works and what doesn't`  work interpreted but not AOT or AOT-interp
