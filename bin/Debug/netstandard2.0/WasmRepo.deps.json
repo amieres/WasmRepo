@@ -10,7 +10,8 @@
       "WasmRepo/1.0.0": {
         "dependencies": {
           "FSharp.Core": "4.7.1",
-          "NETStandard.Library": "2.0.3"
+          "NETStandard.Library": "2.0.3",
+          "SharpZipLib": "1.2.0"
         },
         "runtime": {
           "WasmRepo.dll": {}
@@ -70,6 +71,14 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
+      },
+      "SharpZipLib/1.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll": {
+            "assemblyVersion": "1.2.0.246",
+            "fileVersion": "1.2.0.246"
+          }
+        }
       }
     }
   },
@@ -99,6 +108,13 @@
       "sha512": "sha512-pIW4SCzK/gWaqZHBC7FvCy3eobQMvw8uZQYx0bQLS0E8gJpyn00zV5bgWlQ8n2ANPYX5ZAfUFzFnEHptpSSRyw==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "SharpZipLib/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zvWa/L02JHNatdtjya6Swpudb2YEHaOLHL1eRrqpjm71iGRNUNONO5adUF/9CHbSJbzhELW1UoH4NGy7n7+3bQ==",
+      "path": "sharpziplib/1.2.0",
+      "hashPath": "sharpziplib.1.2.0.nupkg.sha512"
     }
   }
 }
