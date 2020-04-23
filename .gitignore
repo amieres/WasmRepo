@@ -355,7 +355,8 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 managed/
-wasm-sdk/
+wasm-sdk*/
+build*/
 dotnet.js
 dotnet.wasm
 mono-config.js
