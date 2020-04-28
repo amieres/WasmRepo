@@ -8,24 +8,29 @@ let argError msg = printfn "excp: %s" msg ; failwith msg  // raise (ArgumentErro
 open ICSharpCode.SharpZipLib
 
 let testCompression() =
-    use mem    = new System.IO.MemoryStream()
-(**)printfn "comp"    
-    use comp   = new GZip.GZipOutputStream(mem)
-    //use comp   = new System.IO.Compression.GZipStream(mem, System.IO.Compression.CompressionMode.Compress  )
-(**)printfn "wrt"    
-    use wrt    = new System.IO.BinaryWriter(comp)
-(**)printfn "Write"    
-    wrt.Write "Hello GZipStream"
-(**)printfn "Close"    
-    wrt.Close()
-(**)printfn "mem2"    
-    use mem2   = new System.IO.MemoryStream(mem.GetBuffer())
-(**)printfn "rdr"    
-    use decomp = new GZip.GZipInputStream(mem2)
-    //use decomp = new System.IO.Compression.GZipStream(mem2, System.IO.Compression.CompressionMode.Decompress)
-    use rdr    = new System.IO.BinaryReader(decomp)
-(**)printfn "ReadString"    
-    Console.WriteLine(rdr.ReadString())
+    try 
+        use mem    = new System.IO.MemoryStream()
+    (**)printfn "comp"    
+        use comp   = new GZip.GZipOutputStream(mem)
+        //use comp   = new System.IO.Compression.GZipStream(mem, System.IO.Compression.CompressionMode.Compress  )
+    (**)printfn "wrt"    
+        use wrt    = new System.IO.BinaryWriter(comp)
+    (**)printfn "Write"    
+        wrt.Write "Hello GZipStream"
+    (**)printfn "Close"    
+        wrt.Close()
+    (**)printfn "mem2"    
+        use mem2   = new System.IO.MemoryStream(mem.GetBuffer())
+    (**)printfn "rdr"    
+        use decomp = new GZip.GZipInputStream(mem2)
+        //use decomp = new System.IO.Compression.GZipStream(mem2, System.IO.Compression.CompressionMode.Decompress)
+        use rdr    = new System.IO.BinaryReader(decomp)
+    (**)printfn "ReadString"    
+        Console.WriteLine(rdr.ReadString())
+    with e -> 
+        Console.WriteLine "testCompression Error"
+        Console.WriteLine e.Message
+        Console.WriteLine e.StackTrace
 
 let newFileName =
    System.Environment.SetEnvironmentVariable("FSHARP_COMPILER_BIN", "/tmp")
